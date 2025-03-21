@@ -294,3 +294,13 @@ Call log:
 2025-03-21 02:16:54 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/platepay (depth: 1)
 2025-03-21 02:16:56 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/platepay (Status: 200)
 2025-03-21 02:16:58 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact (depth: 1)
+2025-03-21 02:17:00 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/contact (Status: 200)
+2025-03-21 02:17:02 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact#pikepass-store-agents (depth: 1)
+2025-03-21 02:17:02 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/contact#pikepass-store-agents did not return a response
+2025-03-21 02:17:04 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/ (depth: 1)
+2025-03-21 02:17:05 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/ (Status: 200)
+2025-03-21 02:17:07 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/createaccount.aspx (depth: 1)
+2025-03-21 02:17:08 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/createaccount.aspx (Status: 200)
+2025-03-21 02:17:09 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/cao/ (depth: 1)
+2025-03-21 02:17:10 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/cao/ (Status: 200)
+2025-03-21 02:17:11 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/copyright (depth: 1)
