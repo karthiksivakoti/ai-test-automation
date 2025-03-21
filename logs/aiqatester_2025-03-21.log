@@ -1,0 +1,262 @@
+2025-03-21 02:00:56 | INFO     | aiqatester.utils.logger:setup_logger:42 - Logger configured
+2025-03-21 02:00:56 | INFO     | aiqatester.director:__init__:38 - TestDirector initialized
+2025-03-21 02:00:56 | INFO     | aiqatester.browser.controller:__init__:61 - Initialized BrowserController with chromium browser
+2025-03-21 02:00:57 | INFO     | aiqatester.llm.openai_client:__init__:33 - OpenAIClient initialized with model gpt-4o
+2025-03-21 02:00:58 | INFO     | aiqatester.browser.controller:start:102 - Started chromium browser
+2025-03-21 02:00:58 | INFO     | aiqatester.director:run:88 - Starting test process for URL: https://paturnpike.com
+2025-03-21 02:00:58 | INFO     | aiqatester.director:_analyze_website:144 - Analyzing website: https://paturnpike.com
+2025-03-21 02:00:58 | INFO     | aiqatester.analyzer.element_finder:__init__:25 - ElementFinder initialized
+2025-03-21 02:00:58 | INFO     | aiqatester.analyzer.site_analyzer:__init__:33 - SiteAnalyzer initialized
+2025-03-21 02:00:58 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://paturnpike.com (depth: 0)
+2025-03-21 02:00:58 | ERROR    | aiqatester.browser.controller:navigate:157 - Failed to navigate to https://paturnpike.com: Page.goto: net::ERR_CONNECTION_CLOSED at https://paturnpike.com/
+Call log:
+  - navigating to "https://paturnpike.com/", waiting until "networkidle"
+
+2025-03-21 02:00:58 | INFO     | aiqatester.browser.controller:take_screenshot:178 - Screenshot saved to screenshots\navigation_error_1742540458.png
+2025-03-21 02:00:58 | ERROR    | aiqatester.analyzer.site_analyzer:analyze_site:101 - Error analyzing page https://paturnpike.com: Page.goto: net::ERR_CONNECTION_CLOSED at https://paturnpike.com/
+Call log:
+  - navigating to "https://paturnpike.com/", waiting until "networkidle"
+
+2025-03-21 02:00:59 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:109 - Site analysis completed for https://paturnpike.com (0 pages)
+2025-03-21 02:00:59 | INFO     | aiqatester.analyzer.business_analyzer:__init__:29 - BusinessAnalyzer initialized
+2025-03-21 02:02:18 | INFO     | aiqatester.utils.logger:setup_logger:42 - Logger configured
+2025-03-21 02:02:18 | INFO     | aiqatester.director:__init__:38 - TestDirector initialized
+2025-03-21 02:02:18 | INFO     | aiqatester.browser.controller:__init__:61 - Initialized BrowserController with chromium browser
+2025-03-21 02:02:18 | INFO     | aiqatester.llm.openai_client:__init__:33 - OpenAIClient initialized with model gpt-4o
+2025-03-21 02:02:19 | INFO     | aiqatester.browser.controller:start:102 - Started chromium browser
+2025-03-21 02:02:19 | INFO     | aiqatester.director:run:88 - Starting test process for URL: https://pikepass.com/
+2025-03-21 02:02:19 | INFO     | aiqatester.director:_analyze_website:144 - Analyzing website: https://pikepass.com/
+2025-03-21 02:02:19 | INFO     | aiqatester.analyzer.element_finder:__init__:25 - ElementFinder initialized
+2025-03-21 02:02:19 | INFO     | aiqatester.analyzer.site_analyzer:__init__:33 - SiteAnalyzer initialized
+2025-03-21 02:02:19 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ (depth: 0)
+2025-03-21 02:02:22 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ (Status: 200)
+2025-03-21 02:02:25 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/#main (depth: 1)
+2025-03-21 02:02:25 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/#main did not return a response
+2025-03-21 02:02:27 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass (depth: 1)
+2025-03-21 02:02:29 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/pikepass (Status: 200)
+2025-03-21 02:02:31 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#pikepass-stores-location (depth: 1)
+2025-03-21 02:02:31 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#pikepass-stores-location did not return a response
+2025-03-21 02:02:34 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#make-a-payment (depth: 1)
+2025-03-21 02:02:34 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#make-a-payment did not return a response
+2025-03-21 02:02:37 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#installation-tips (depth: 1)
+2025-03-21 02:02:37 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#installation-tips did not return a response
+2025-03-21 02:02:39 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#forms (depth: 1)
+2025-03-21 02:02:39 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#forms did not return a response
+2025-03-21 02:02:42 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#faqs (depth: 1)
+2025-03-21 02:02:42 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#faqs did not return a response
+2025-03-21 02:02:45 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/toll-calculator (depth: 1)
+2025-03-21 02:02:46 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/toll-calculator (Status: 200)
+2025-03-21 02:02:48 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/vehicle-classifications (depth: 1)
+2025-03-21 02:02:50 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/vehicle-classifications (Status: 200)
+2025-03-21 02:02:52 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/interoperability (depth: 1)
+2025-03-21 02:02:54 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/interoperability (Status: 200)
+2025-03-21 02:02:56 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/platepay (depth: 1)
+2025-03-21 02:02:58 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/platepay (Status: 200)
+2025-03-21 02:03:00 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact (depth: 1)
+2025-03-21 02:03:02 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/contact (Status: 200)
+2025-03-21 02:03:04 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact#pikepass-store-agents (depth: 1)
+2025-03-21 02:03:04 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/contact#pikepass-store-agents did not return a response
+2025-03-21 02:03:06 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/ (depth: 1)
+2025-03-21 02:03:07 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/ (Status: 200)
+2025-03-21 02:03:08 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/createaccount.aspx (depth: 1)
+2025-03-21 02:03:09 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/createaccount.aspx (Status: 200)
+2025-03-21 02:03:11 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/cao/ (depth: 1)
+2025-03-21 02:03:11 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/cao/ (Status: 200)
+2025-03-21 02:03:13 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/copyright (depth: 1)
+2025-03-21 02:03:15 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/copyright (Status: 200)
+2025-03-21 02:03:17 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/disclaimer (depth: 1)
+2025-03-21 02:03:19 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/disclaimer (Status: 200)
+2025-03-21 02:03:21 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/privacy-policy (depth: 1)
+2025-03-21 02:03:22 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/privacy-policy (Status: 200)
+2025-03-21 02:03:25 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:109 - Site analysis completed for https://pikepass.com (20 pages)
+2025-03-21 02:03:25 | INFO     | aiqatester.analyzer.business_analyzer:__init__:29 - BusinessAnalyzer initialized
+2025-03-21 02:03:39 | INFO     | aiqatester.analyzer.business_analyzer:identify_business_flows:81 - Identified 5 business flows
+2025-03-21 02:03:39 | INFO     | aiqatester.director:_analyze_website:163 - Website analysis completed: 20 pages analyzed
+2025-03-21 02:03:39 | INFO     | aiqatester.director:_create_test_strategy:177 - Creating test strategy
+2025-03-21 02:03:39 | INFO     | aiqatester.planner.strategy:__init__:30 - TestStrategy initialized
+2025-03-21 02:03:39 | INFO     | aiqatester.planner.strategy:create_strategy:39 - Creating testing strategy for https://pikepass.com
+2025-03-21 02:03:55 | INFO     | aiqatester.planner.strategy:create_strategy:112 - Created testing strategy with 5 test cases
+2025-03-21 02:03:55 | INFO     | aiqatester.planner.prioritizer:__init__:17 - TestPrioritizer initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.planner.prioritizer:prioritize_tests:40 - Prioritized 5 test cases
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_create_test_strategy:198 - Test strategy created with 5 test cases
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_generate_test_scripts:212 - Generating test scripts
+2025-03-21 02:03:55 | INFO     | aiqatester.generator.script_generator:__init__:30 - TestScriptGenerator initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.generator.script_generator:generate_scripts:47 - Generating test scripts for 5 test cases
+2025-03-21 02:03:55 | ERROR    | aiqatester.generator.script_generator:generate_scripts:69 - Error generating test script for Login Functionality Test: 'str' object has no attribute 'get'
+2025-03-21 02:03:55 | ERROR    | aiqatester.generator.script_generator:generate_scripts:69 - Error generating test script for SQL Injection Test: 'str' object has no attribute 'get'
+2025-03-21 02:03:55 | ERROR    | aiqatester.generator.script_generator:generate_scripts:69 - Error generating test script for Load Testing: 'str' object has no attribute 'get'
+2025-03-21 02:03:55 | ERROR    | aiqatester.generator.script_generator:generate_scripts:69 - Error generating test script for User Interface Accessibility Test: 'str' object has no attribute 'get'
+2025-03-21 02:03:55 | ERROR    | aiqatester.generator.script_generator:generate_scripts:69 - Error generating test script for Cross-Browser Compatibility Test: 'str' object has no attribute 'get'
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_generate_test_scripts:220 - Generated 0 test scripts
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_execute_tests:233 - Executing 0 test scripts
+2025-03-21 02:03:55 | INFO     | aiqatester.browser.actions:__init__:25 - BrowserActions initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.runner:__init__:29 - TestRunner initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.runner:run_test_suite:139 - Running test suite with 0 test scripts
+2025-03-21 02:03:55 | INFO     | aiqatester.data.generator:__init__:21 - DataGenerator initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.data.generator:generate_default_data:79 - Generated default test data
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.runner:run_test_suite:187 - Test suite completed: 0 passed, 0 failed, 0 skipped, 0 errors
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.reporter:__init__:31 - TestReporter initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.reporter:generate_report:44 - Generating test report at 2025-03-21T02:03:55.368696
+2025-03-21 02:03:55 | INFO     | aiqatester.executor.reporter:generate_report:92 - Test report saved to reports\report_1742540635.json
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_execute_tests:249 - Test execution completed: 0 passed, 0 failed
+2025-03-21 02:03:55 | INFO     | aiqatester.director:_process_feedback:262 - Processing test results
+2025-03-21 02:03:55 | INFO     | aiqatester.feedback.analyzer:__init__:26 - FeedbackAnalyzer initialized
+2025-03-21 02:03:55 | INFO     | aiqatester.feedback.analyzer:analyze_results:38 - Analyzing 0 test results
+2025-03-21 02:04:13 | INFO     | aiqatester.director:_process_feedback:270 - Feedback processing completed
+2025-03-21 02:04:13 | INFO     | aiqatester.director:_enhance_tests:284 - Enhancing test scripts based on feedback
+2025-03-21 02:04:13 | INFO     | aiqatester.feedback.enhancer:__init__:26 - TestEnhancer initialized
+2025-03-21 02:04:13 | INFO     | aiqatester.director:_enhance_tests:296 - Test enhancement completed: 0 scripts enhanced
+2025-03-21 02:04:14 | INFO     | aiqatester.browser.controller:stop:140 - Browser stopped and resources released
+2025-03-21 02:10:16 | INFO     | aiqatester.utils.logger:setup_logger:42 - Logger configured
+2025-03-21 02:10:16 | INFO     | aiqatester.director:__init__:38 - TestDirector initialized
+2025-03-21 02:10:16 | INFO     | aiqatester.browser.controller:__init__:61 - Initialized BrowserController with chromium browser
+2025-03-21 02:10:17 | INFO     | aiqatester.llm.openai_client:__init__:33 - OpenAIClient initialized with model gpt-4o
+2025-03-21 02:10:17 | INFO     | aiqatester.browser.controller:start:102 - Started chromium browser
+2025-03-21 02:10:17 | INFO     | aiqatester.director:run:88 - Starting test process for URL: https://pikepass.com/
+2025-03-21 02:10:17 | INFO     | aiqatester.director:_analyze_website:144 - Analyzing website: https://pikepass.com/
+2025-03-21 02:10:17 | INFO     | aiqatester.analyzer.element_finder:__init__:25 - ElementFinder initialized
+2025-03-21 02:10:17 | INFO     | aiqatester.analyzer.site_analyzer:__init__:33 - SiteAnalyzer initialized
+2025-03-21 02:10:17 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ (depth: 0)
+2025-03-21 02:10:22 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ (Status: 200)
+2025-03-21 02:10:24 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/#main (depth: 1)
+2025-03-21 02:10:24 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/#main did not return a response
+2025-03-21 02:10:26 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass (depth: 1)
+2025-03-21 02:10:28 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/pikepass (Status: 200)
+2025-03-21 02:10:31 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#pikepass-stores-location (depth: 1)
+2025-03-21 02:10:31 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#pikepass-stores-location did not return a response
+2025-03-21 02:10:33 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#make-a-payment (depth: 1)
+2025-03-21 02:10:33 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#make-a-payment did not return a response
+2025-03-21 02:10:36 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#installation-tips (depth: 1)
+2025-03-21 02:10:36 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#installation-tips did not return a response
+2025-03-21 02:10:39 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#forms (depth: 1)
+2025-03-21 02:10:39 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#forms did not return a response
+2025-03-21 02:10:41 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#faqs (depth: 1)
+2025-03-21 02:10:41 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#faqs did not return a response
+2025-03-21 02:10:44 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/toll-calculator (depth: 1)
+2025-03-21 02:10:46 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/toll-calculator (Status: 200)
+2025-03-21 02:10:48 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/vehicle-classifications (depth: 1)
+2025-03-21 02:10:50 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/vehicle-classifications (Status: 200)
+2025-03-21 02:10:52 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/interoperability (depth: 1)
+2025-03-21 02:10:54 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/interoperability (Status: 200)
+2025-03-21 02:10:56 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/platepay (depth: 1)
+2025-03-21 02:10:58 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/platepay (Status: 200)
+2025-03-21 02:11:00 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact (depth: 1)
+2025-03-21 02:11:02 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/contact (Status: 200)
+2025-03-21 02:11:04 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact#pikepass-store-agents (depth: 1)
+2025-03-21 02:11:04 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/contact#pikepass-store-agents did not return a response
+2025-03-21 02:11:07 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/ (depth: 1)
+2025-03-21 02:11:08 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/ (Status: 200)
+2025-03-21 02:11:09 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/createaccount.aspx (depth: 1)
+2025-03-21 02:11:10 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/createaccount.aspx (Status: 200)
+2025-03-21 02:11:12 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/cao/ (depth: 1)
+2025-03-21 02:11:13 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/cao/ (Status: 200)
+2025-03-21 02:11:14 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/copyright (depth: 1)
+2025-03-21 02:11:17 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/copyright (Status: 200)
+2025-03-21 02:11:19 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/disclaimer (depth: 1)
+2025-03-21 02:11:21 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/disclaimer (Status: 200)
+2025-03-21 02:11:23 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/privacy-policy (depth: 1)
+2025-03-21 02:11:25 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/privacy-policy (Status: 200)
+2025-03-21 02:11:27 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:109 - Site analysis completed for https://pikepass.com (20 pages)
+2025-03-21 02:11:27 | INFO     | aiqatester.analyzer.business_analyzer:__init__:29 - BusinessAnalyzer initialized
+2025-03-21 02:11:56 | INFO     | aiqatester.analyzer.business_analyzer:identify_business_flows:81 - Identified 5 business flows
+2025-03-21 02:11:56 | INFO     | aiqatester.director:_analyze_website:163 - Website analysis completed: 20 pages analyzed
+2025-03-21 02:11:56 | INFO     | aiqatester.director:_create_test_strategy:177 - Creating test strategy
+2025-03-21 02:11:56 | INFO     | aiqatester.planner.strategy:__init__:30 - TestStrategy initialized
+2025-03-21 02:11:56 | INFO     | aiqatester.planner.strategy:create_strategy:39 - Creating testing strategy for https://pikepass.com
+2025-03-21 02:12:13 | INFO     | aiqatester.planner.strategy:create_strategy:112 - Created testing strategy with 5 test cases
+2025-03-21 02:12:13 | INFO     | aiqatester.planner.prioritizer:__init__:17 - TestPrioritizer initialized
+2025-03-21 02:12:13 | INFO     | aiqatester.planner.prioritizer:prioritize_tests:40 - Prioritized 5 test cases
+2025-03-21 02:12:13 | INFO     | aiqatester.director:_create_test_strategy:198 - Test strategy created with 5 test cases
+2025-03-21 02:12:13 | INFO     | aiqatester.director:_generate_test_scripts:212 - Generating test scripts
+2025-03-21 02:12:13 | INFO     | aiqatester.generator.script_generator:__init__:30 - TestScriptGenerator initialized
+2025-03-21 02:12:13 | ERROR    | aiqatester.director:run:128 - Error running test process: cannot access local variable 'test_case' where it is not associated with a value
+2025-03-21 02:12:14 | INFO     | aiqatester.browser.controller:stop:140 - Browser stopped and resources released
+2025-03-21 02:12:14 | ERROR    | __main__:main:56 - Error running tests: cannot access local variable 'test_case' where it is not associated with a value
+2025-03-21 02:13:15 | INFO     | aiqatester.utils.logger:setup_logger:42 - Logger configured
+2025-03-21 02:13:15 | INFO     | aiqatester.director:__init__:38 - TestDirector initialized
+2025-03-21 02:13:15 | INFO     | aiqatester.browser.controller:__init__:61 - Initialized BrowserController with chromium browser
+2025-03-21 02:13:15 | INFO     | aiqatester.llm.openai_client:__init__:33 - OpenAIClient initialized with model gpt-4o
+2025-03-21 02:13:16 | INFO     | aiqatester.browser.controller:start:102 - Started chromium browser
+2025-03-21 02:13:16 | INFO     | aiqatester.director:run:88 - Starting test process for URL: https://pikepass.com/
+2025-03-21 02:13:16 | INFO     | aiqatester.director:_analyze_website:144 - Analyzing website: https://pikepass.com/
+2025-03-21 02:13:16 | INFO     | aiqatester.analyzer.element_finder:__init__:25 - ElementFinder initialized
+2025-03-21 02:13:16 | INFO     | aiqatester.analyzer.site_analyzer:__init__:33 - SiteAnalyzer initialized
+2025-03-21 02:13:16 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ (depth: 0)
+2025-03-21 02:13:25 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ (Status: 200)
+2025-03-21 02:13:27 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/#main (depth: 1)
+2025-03-21 02:13:27 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/#main did not return a response
+2025-03-21 02:13:30 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass (depth: 1)
+2025-03-21 02:13:32 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/pikepass (Status: 200)
+2025-03-21 02:13:34 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#pikepass-stores-location (depth: 1)
+2025-03-21 02:13:34 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#pikepass-stores-location did not return a response
+2025-03-21 02:13:37 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#make-a-payment (depth: 1)
+2025-03-21 02:13:37 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#make-a-payment did not return a response
+2025-03-21 02:13:40 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#installation-tips (depth: 1)
+2025-03-21 02:13:40 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#installation-tips did not return a response
+2025-03-21 02:13:43 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#forms (depth: 1)
+2025-03-21 02:13:43 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#forms did not return a response
+2025-03-21 02:13:45 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/pikepass#faqs (depth: 1)
+2025-03-21 02:13:45 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/pikepass#faqs did not return a response
+2025-03-21 02:13:48 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/toll-calculator (depth: 1)
+2025-03-21 02:13:50 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/toll-calculator (Status: 200)
+2025-03-21 02:13:52 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/vehicle-classifications (depth: 1)
+2025-03-21 02:13:54 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/vehicle-classifications (Status: 200)
+2025-03-21 02:13:56 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/plan-your-trip/interoperability (depth: 1)
+2025-03-21 02:13:57 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/plan-your-trip/interoperability (Status: 200)
+2025-03-21 02:14:00 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/platepay (depth: 1)
+2025-03-21 02:14:02 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/platepay (Status: 200)
+2025-03-21 02:14:04 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact (depth: 1)
+2025-03-21 02:14:06 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/contact (Status: 200)
+2025-03-21 02:14:08 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/contact#pikepass-store-agents (depth: 1)
+2025-03-21 02:14:08 | WARNING  | aiqatester.browser.controller:navigate:155 - Navigation to https://pikepass.com/contact#pikepass-store-agents did not return a response
+2025-03-21 02:14:10 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/ (depth: 1)
+2025-03-21 02:14:12 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/ (Status: 200)
+2025-03-21 02:14:13 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/ppo/createaccount.aspx (depth: 1)
+2025-03-21 02:14:14 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/ppo/createaccount.aspx (Status: 200)
+2025-03-21 02:14:16 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/cao/ (depth: 1)
+2025-03-21 02:14:17 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/cao/ (Status: 200)
+2025-03-21 02:14:18 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/copyright (depth: 1)
+2025-03-21 02:14:24 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/copyright (Status: 200)
+2025-03-21 02:14:26 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/disclaimer (depth: 1)
+2025-03-21 02:14:28 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/disclaimer (Status: 200)
+2025-03-21 02:14:30 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:71 - Analyzing page: https://pikepass.com/privacy-policy (depth: 1)
+2025-03-21 02:14:31 | INFO     | aiqatester.browser.controller:navigate:153 - Navigated to https://pikepass.com/privacy-policy (Status: 200)
+2025-03-21 02:14:34 | INFO     | aiqatester.analyzer.site_analyzer:analyze_site:109 - Site analysis completed for https://pikepass.com (20 pages)
+2025-03-21 02:14:34 | INFO     | aiqatester.analyzer.business_analyzer:__init__:29 - BusinessAnalyzer initialized
+2025-03-21 02:14:48 | INFO     | aiqatester.analyzer.business_analyzer:identify_business_flows:81 - Identified 5 business flows
+2025-03-21 02:14:48 | INFO     | aiqatester.director:_analyze_website:163 - Website analysis completed: 20 pages analyzed
+2025-03-21 02:14:48 | INFO     | aiqatester.director:_create_test_strategy:177 - Creating test strategy
+2025-03-21 02:14:48 | INFO     | aiqatester.planner.strategy:__init__:30 - TestStrategy initialized
+2025-03-21 02:14:48 | INFO     | aiqatester.planner.strategy:create_strategy:39 - Creating testing strategy for https://pikepass.com
+2025-03-21 02:15:06 | INFO     | aiqatester.planner.strategy:create_strategy:112 - Created testing strategy with 5 test cases
+2025-03-21 02:15:06 | INFO     | aiqatester.planner.prioritizer:__init__:17 - TestPrioritizer initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.planner.prioritizer:prioritize_tests:40 - Prioritized 5 test cases
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_create_test_strategy:198 - Test strategy created with 5 test cases
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_generate_test_scripts:212 - Generating test scripts
+2025-03-21 02:15:06 | INFO     | aiqatester.generator.script_generator:__init__:30 - TestScriptGenerator initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.generator.script_generator:generate_scripts:39 - Generating test scripts for 5 test cases
+2025-03-21 02:15:06 | ERROR    | aiqatester.generator.script_generator:generate_scripts:68 - Error generating test script for User Login Test: 'str' object has no attribute 'get'
+2025-03-21 02:15:06 | ERROR    | aiqatester.generator.script_generator:generate_scripts:68 - Error generating test script for Payment Gateway Test: 'str' object has no attribute 'get'
+2025-03-21 02:15:06 | ERROR    | aiqatester.generator.script_generator:generate_scripts:68 - Error generating test script for Data Encryption Test: 'str' object has no attribute 'get'
+2025-03-21 02:15:06 | ERROR    | aiqatester.generator.script_generator:generate_scripts:68 - Error generating test script for API Response Time Test: 'str' object has no attribute 'get'
+2025-03-21 02:15:06 | ERROR    | aiqatester.generator.script_generator:generate_scripts:68 - Error generating test script for Cross-Browser Compatibility Test: 'str' object has no attribute 'get'
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_generate_test_scripts:220 - Generated 0 test scripts
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_execute_tests:233 - Executing 0 test scripts
+2025-03-21 02:15:06 | INFO     | aiqatester.browser.actions:__init__:25 - BrowserActions initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.runner:__init__:29 - TestRunner initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.runner:run_test_suite:139 - Running test suite with 0 test scripts
+2025-03-21 02:15:06 | INFO     | aiqatester.data.generator:__init__:21 - DataGenerator initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.data.generator:generate_default_data:79 - Generated default test data
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.runner:run_test_suite:187 - Test suite completed: 0 passed, 0 failed, 0 skipped, 0 errors
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.reporter:__init__:31 - TestReporter initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.reporter:generate_report:44 - Generating test report at 2025-03-21T02:15:06.198745
+2025-03-21 02:15:06 | INFO     | aiqatester.executor.reporter:generate_report:92 - Test report saved to reports\report_1742541306.json
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_execute_tests:249 - Test execution completed: 0 passed, 0 failed
+2025-03-21 02:15:06 | INFO     | aiqatester.director:_process_feedback:262 - Processing test results
+2025-03-21 02:15:06 | INFO     | aiqatester.feedback.analyzer:__init__:26 - FeedbackAnalyzer initialized
+2025-03-21 02:15:06 | INFO     | aiqatester.feedback.analyzer:analyze_results:38 - Analyzing 0 test results
+2025-03-21 02:15:22 | INFO     | aiqatester.director:_process_feedback:270 - Feedback processing completed
+2025-03-21 02:15:22 | INFO     | aiqatester.director:_enhance_tests:284 - Enhancing test scripts based on feedback
+2025-03-21 02:15:22 | INFO     | aiqatester.feedback.enhancer:__init__:26 - TestEnhancer initialized
+2025-03-21 02:15:22 | INFO     | aiqatester.director:_enhance_tests:296 - Test enhancement completed: 0 scripts enhanced
+2025-03-21 02:15:23 | INFO     | aiqatester.browser.controller:stop:140 - Browser stopped and resources released

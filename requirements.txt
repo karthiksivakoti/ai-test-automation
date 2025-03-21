@@ -1,0 +1,38 @@
+# Core dependencies
+playwright>=1.42.0            # Browser automation
+asyncio>=3.4.3                # Async programming support
+python-dotenv>=1.0.0          # Environment variable management
+
+# LLM Integration
+openai>=1.11.0                # OpenAI API integration
+anthropic>=0.8.0              # Anthropic API integration (optional)
+langchain>=0.1.0              # LLM framework for chaining operations
+
+# Web Processing
+beautifulsoup4>=4.12.2        # HTML processing 
+lxml>=4.9.3                   # XML/HTML processing
+html2text>=2020.1.16          # Convert HTML to readable text for LLMs
+
+# Data processing
+pyyaml>=6.0                   # Configuration management
+pandas>=2.1.1                 # Data manipulation
+numpy>=1.25.2                 # Numerical operations
+
+# Testing and QA
+pytest>=7.4.0                 # Testing framework
+pytest-playwright>=0.4.0      # Playwright integration for pytest
+axe-playwright-python>=0.1.3  # Accessibility testing
+
+# Utilities
+loguru>=0.7.0                 # Enhanced logging
+tqdm>=4.66.1                  # Progress bars
+retry>=0.9.2                  # Retry mechanisms for stability
+aiohttp>=3.9.1                # Async HTTP requests
+dotenv                        # Environment variable management
+
+# Cloud & Containerization
+docker>=6.1.3                 # Docker SDK for Python
+pydantic>=2.4.2               # Data validation and settings management
+fastapi>=0.100.0              # API framework (for service deployment)
+uvicorn>=0.23.0               # ASGI server (for API)
+
