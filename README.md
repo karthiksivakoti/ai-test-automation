@@ -194,6 +194,7 @@ playwright install
 ### Run a test
 ```code
 python main.py https://pikepass.com --task "Test login functionality"
+python view_results.py
 ```
 
 ## 📊 Understanding Results
