@@ -1,9 +1,12 @@
+# Create the file in the app directory
+# Path: ai-test-automation/app/app.py
+
 from flask import Flask, render_template, request, jsonify
 import asyncio
 import os
 import sys
 
-# Add the project root to Python path
+# Add project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from aiqatester.director import TestDirector
@@ -39,4 +42,4 @@ async def run_test_async(url, task, config):
         return {"error": str(e)}
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
