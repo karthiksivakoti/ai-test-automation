@@ -1,0 +1,468 @@
+[
+  {
+    "name": "User Login Test",
+    "description": "Verify that users can log in with valid credentials and are denied access with invalid credentials.",
+    "priority": 5,
+    "steps": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/",
+        "wait_for": "#ctl00_lgnView_lgnStatus"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "selector": "#ctl00_lgnView_lgnStatus",
+        "value": null,
+        "wait_for": "#ctl00_cphSite_Login1_UserName"
+      },
+      {
+        "step": 3,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "value": "validUsername",
+        "wait_for": null
+      },
+      {
+        "step": 4,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "value": "validPassword",
+        "wait_for": null
+      },
+      {
+        "step": 5,
+        "action": "click",
+        "selector": "[name='ctl00$cphSite$Login1$LoginButton']",
+        "value": null,
+        "wait_for": ".welcome-message"
+      },
+      {
+        "step": 6,
+        "action": "verify",
+        "selector": ".welcome-message",
+        "value": "Welcome, validUsername!",
+        "wait_for": null
+      },
+      {
+        "step": 7,
+        "action": "click",
+        "selector": "#ctl00_lgnView_lgnStatus",
+        "value": null,
+        "wait_for": "#ctl00_cphSite_Login1_UserName"
+      },
+      {
+        "step": 8,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "value": "invalidUsername",
+        "wait_for": null
+      },
+      {
+        "step": 9,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "value": "invalidPassword",
+        "wait_for": null
+      },
+      {
+        "step": 10,
+        "action": "click",
+        "selector": "[name='ctl00$cphSite$Login1$LoginButton']",
+        "value": null,
+        "wait_for": ".error-message"
+      },
+      {
+        "step": 11,
+        "action": "verify",
+        "selector": ".error-message",
+        "value": "Invalid username or password.",
+        "wait_for": null
+      }
+    ],
+    "assertions": [
+      {
+        "assertion": "Verify the page loads successfully",
+        "selector": "body",
+        "expected_condition": "page loads without errors",
+        "after_step": 1
+      },
+      {
+        "assertion": "Verify the login button is visible",
+        "selector": "#ctl00_lgnView_lgnStatus",
+        "expected_condition": "is visible",
+        "after_step": 1
+      },
+      {
+        "assertion": "Verify the username field is visible",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expected_condition": "is visible",
+        "after_step": 2
+      },
+      {
+        "assertion": "Verify the password field is visible",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "expected_condition": "is visible",
+        "after_step": 2
+      },
+      {
+        "assertion": "Verify username is entered correctly",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expected_value": "validUsername",
+        "after_step": 3
+      },
+      {
+        "assertion": "Verify password is entered correctly",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "expected_value": "validPassword",
+        "after_step": 4
+      },
+      {
+        "assertion": "Verify the welcome message is displayed",
+        "selector": ".welcome-message",
+        "expected_value": "Welcome, validUsername!",
+        "after_step": 5
+      },
+      {
+        "assertion": "Verify the login button redirects to login page",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expected_condition": "is visible",
+        "after_step": 7
+      },
+      {
+        "assertion": "Verify invalid username is entered correctly",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expected_value": "invalidUsername",
+        "after_step": 8
+      },
+      {
+        "assertion": "Verify invalid password is entered correctly",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "expected_value": "invalidPassword",
+        "after_step": 9
+      },
+      {
+        "assertion": "Verify the error message is displayed",
+        "selector": ".error-message",
+        "expected_value": "Invalid username or password.",
+        "after_step": 10
+      }
+    ],
+    "data_requirements": {
+      "username": "testuser",
+      "password": "TestPassword123!"
+    }
+  },
+  {
+    "name": "Security Vulnerability Scan",
+    "description": "Conduct a security scan to identify potential vulnerabilities in the application.",
+    "priority": 5,
+    "steps": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/",
+        "wait_for": "body"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "selector": "#nav-home",
+        "value": null,
+        "wait_for": "#nav-logo"
+      },
+      {
+        "step": 3,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/contact",
+        "wait_for": "#zipcode"
+      },
+      {
+        "step": 4,
+        "action": "type",
+        "selector": "#zipcode",
+        "value": "73101",
+        "wait_for": "#ddlCity"
+      },
+      {
+        "step": 5,
+        "action": "select",
+        "selector": "#ddlCity",
+        "value": "Oklahoma City",
+        "wait_for": ".form-btn.w-button"
+      },
+      {
+        "step": 6,
+        "action": "click",
+        "selector": ".form-btn.w-button",
+        "value": null,
+        "wait_for": ".results-container"
+      },
+      {
+        "step": 7,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/platepay",
+        "wait_for": "#nav-logo"
+      },
+      {
+        "step": 8,
+        "action": "verify",
+        "selector": "#nav-logo",
+        "value": "Safe. Efficient. Reliable",
+        "wait_for": null
+      }
+    ],
+    "assertions": [
+      {
+        "step": 1,
+        "assertion": "Verify page loaded",
+        "selector": "body",
+        "expected": "Page content is displayed",
+        "when": "After Step 1"
+      },
+      {
+        "step": 2,
+        "assertion": "Verify home navigation",
+        "selector": "#nav-logo",
+        "expected": "Logo is displayed on the home page",
+        "when": "After Step 2"
+      },
+      {
+        "step": 3,
+        "assertion": "Verify contact page loaded",
+        "selector": "#zipcode",
+        "expected": "Zipcode input field is present",
+        "when": "After Step 3"
+      },
+      {
+        "step": 4,
+        "assertion": "Verify zipcode entered",
+        "selector": "#zipcode",
+        "expected": "Value is '73101'",
+        "when": "After Step 4"
+      },
+      {
+        "step": 5,
+        "assertion": "Verify city selected",
+        "selector": "#ddlCity",
+        "expected": "Selected value is 'Oklahoma City'",
+        "when": "After Step 5"
+      },
+      {
+        "step": 6,
+        "assertion": "Verify form submission",
+        "selector": ".results-container",
+        "expected": "Results are displayed after form submission",
+        "when": "After Step 6"
+      },
+      {
+        "step": 7,
+        "assertion": "Verify PlatePay page loaded",
+        "selector": "#nav-logo",
+        "expected": "Logo is displayed on the PlatePay page",
+        "when": "After Step 7"
+      },
+      {
+        "step": 8,
+        "assertion": "Verify page text",
+        "selector": "#nav-logo",
+        "expected": "Text 'Safe. Efficient. Reliable' is present",
+        "when": "After Step 8"
+      }
+    ],
+    "data_requirements": {}
+  },
+  {
+    "name": "Data Integrity Check",
+    "description": "Ensure that data processed by the system remains accurate and consistent.",
+    "priority": 4,
+    "steps": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/",
+        "wait_for": "#nav-logo"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "selector": "#nav-home",
+        "value": null,
+        "wait_for": "#nav-logo"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "selector": "#ctl00_lgnView_lgnStatus",
+        "value": null,
+        "wait_for": "#ctl00_cphSite_Login1_UserName"
+      },
+      {
+        "step": 4,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "value": "testuser",
+        "wait_for": null
+      },
+      {
+        "step": 5,
+        "action": "type",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "value": "Password123",
+        "wait_for": null
+      },
+      {
+        "step": 6,
+        "action": "click",
+        "selector": ".ui-dialog-titlebar-close",
+        "value": null,
+        "wait_for": "#nav-logo"
+      },
+      {
+        "step": 7,
+        "action": "navigate",
+        "selector": null,
+        "value": "https://pikepass.com/plan-your-trip/toll-calculator",
+        "wait_for": "#ddlTurnpike"
+      },
+      {
+        "step": 8,
+        "action": "select",
+        "selector": "#ddlTurnpike",
+        "value": "Turnpike A",
+        "wait_for": null
+      },
+      {
+        "step": 9,
+        "action": "select",
+        "selector": "#ddlEntry",
+        "value": "Entry Point 1",
+        "wait_for": null
+      },
+      {
+        "step": 10,
+        "action": "select",
+        "selector": "#ddlExit",
+        "value": "Exit Point 2",
+        "wait_for": null
+      },
+      {
+        "step": 11,
+        "action": "wait",
+        "selector": null,
+        "value": "5000",
+        "wait_for": "#calculated-toll"
+      },
+      {
+        "step": 12,
+        "action": "verify",
+        "selector": "#calculated-toll",
+        "value": "Expected Toll Value",
+        "wait_for": null
+      }
+    ],
+    "assertions": [
+      {
+        "step": 1,
+        "assert": "Page navigation successful",
+        "selector": "document.URL",
+        "expectedValue": "https://pikepass.com/",
+        "when": "After step 1"
+      },
+      {
+        "step": 1,
+        "assert": "Home page is loaded",
+        "selector": "#nav-logo",
+        "expectedValue": "isVisible",
+        "when": "After step 1"
+      },
+      {
+        "step": 2,
+        "assert": "Home navigation successful",
+        "selector": "#nav-logo",
+        "expectedValue": "isVisible",
+        "when": "After step 2"
+      },
+      {
+        "step": 3,
+        "assert": "Login form is displayed",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expectedValue": "isVisible",
+        "when": "After step 3"
+      },
+      {
+        "step": 4,
+        "assert": "Username is entered",
+        "selector": "#ctl00_cphSite_Login1_UserName",
+        "expectedValue": "testuser",
+        "when": "After step 4"
+      },
+      {
+        "step": 5,
+        "assert": "Password is entered",
+        "selector": "#ctl00_cphSite_Login1_Password",
+        "expectedValue": "Password123",
+        "when": "After step 5"
+      },
+      {
+        "step": 6,
+        "assert": "Dialog is closed",
+        "selector": "#nav-logo",
+        "expectedValue": "isVisible",
+        "when": "After step 6"
+      },
+      {
+        "step": 7,
+        "assert": "Toll calculator page is loaded",
+        "selector": "document.URL",
+        "expectedValue": "https://pikepass.com/plan-your-trip/toll-calculator",
+        "when": "After step 7"
+      },
+      {
+        "step": 8,
+        "assert": "Turnpike A is selected",
+        "selector": "#ddlTurnpike",
+        "expectedValue": "Turnpike A",
+        "when": "After step 8"
+      },
+      {
+        "step": 9,
+        "assert": "Entry Point 1 is selected",
+        "selector": "#ddlEntry",
+        "expectedValue": "Entry Point 1",
+        "when": "After step 9"
+      },
+      {
+        "step": 10,
+        "assert": "Exit Point 2 is selected",
+        "selector": "#ddlExit",
+        "expectedValue": "Exit Point 2",
+        "when": "After step 10"
+      },
+      {
+        "step": 11,
+        "assert": "Calculated toll is displayed",
+        "selector": "#calculated-toll",
+        "expectedValue": "isVisible",
+        "when": "After step 11"
+      },
+      {
+        "step": 12,
+        "assert": "Toll value is correct",
+        "selector": "#calculated-toll",
+        "expectedValue": "Expected Toll Value",
+        "when": "After step 12"
+      }
+    ],
+    "data_requirements": {
+      "username": "testuser",
+      "password": "TestPassword123!"
+    }
+  }
+]

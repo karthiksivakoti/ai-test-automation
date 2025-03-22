@@ -1,0 +1,200 @@
+{
+  "total": 3,
+  "passed": 0,
+  "failed": 3,
+  "skipped": 0,
+  "error": 0,
+  "start_time": 1742655726.2168548,
+  "end_time": 1742655930.5703712,
+  "duration": 204.35351634025574,
+  "results": [
+    {
+      "name": "User Login Test",
+      "description": "Verify that users can log in with valid credentials and are denied access with invalid credentials.",
+      "status": "failed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "navigate",
+          "status": "passed",
+          "start_time": 1742655726.2198608,
+          "end_time": 1742655760.4880517,
+          "duration": 34.26819086074829,
+          "screenshot": "screenshots\\step_1.png"
+        },
+        {
+          "step": 2,
+          "action": "click",
+          "status": "failed",
+          "start_time": 1742655760.4880517,
+          "end_time": 1742655822.2623312,
+          "duration": 61.77427959442139,
+          "screenshot": "screenshots\\step_2.png"
+        }
+      ],
+      "assertions": [],
+      "start_time": 1742655726.2198608,
+      "end_time": 1742655822.764837,
+      "duration": 96.54497623443604,
+      "screenshots": [
+        "screenshots\\test_User_Login_Test_final.png"
+      ]
+    },
+    {
+      "name": "Security Vulnerability Scan",
+      "description": "Conduct a security scan to identify potential vulnerabilities in the application.",
+      "status": "failed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "navigate",
+          "status": "passed",
+          "start_time": 1742655823.7657647,
+          "end_time": 1742655828.6328306,
+          "duration": 4.867065906524658,
+          "screenshot": "screenshots\\step_1.png"
+        },
+        {
+          "step": 2,
+          "action": "click",
+          "status": "passed",
+          "start_time": 1742655828.6328306,
+          "end_time": 1742655829.301836,
+          "duration": 0.6690053939819336,
+          "screenshot": "screenshots\\step_2.png"
+        },
+        {
+          "step": 3,
+          "action": "navigate",
+          "status": "passed",
+          "start_time": 1742655829.301836,
+          "end_time": 1742655831.6265306,
+          "duration": 2.3246946334838867,
+          "screenshot": "screenshots\\step_3.png"
+        },
+        {
+          "step": 4,
+          "action": "type",
+          "status": "passed",
+          "start_time": 1742655831.6265306,
+          "end_time": 1742655832.2242706,
+          "duration": 0.5977399349212646,
+          "screenshot": "screenshots\\step_4.png"
+        },
+        {
+          "step": 5,
+          "action": "select",
+          "status": "failed",
+          "start_time": 1742655832.2242706,
+          "end_time": 1742655863.0496702,
+          "duration": 30.82539963722229,
+          "screenshot": "screenshots\\step_5.png"
+        }
+      ],
+      "assertions": [],
+      "start_time": 1742655823.7657647,
+      "end_time": 1742655863.385475,
+      "duration": 39.619710206985474,
+      "screenshots": [
+        "screenshots\\test_Security_Vulnerability_Scan_final.png"
+      ]
+    },
+    {
+      "name": "Data Integrity Check",
+      "description": "Ensure that data processed by the system remains accurate and consistent.",
+      "status": "failed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "navigate",
+          "status": "passed",
+          "start_time": 1742655864.39965,
+          "end_time": 1742655866.7904837,
+          "duration": 2.390833616256714,
+          "screenshot": "screenshots\\step_1.png"
+        },
+        {
+          "step": 2,
+          "action": "click",
+          "status": "passed",
+          "start_time": 1742655866.791491,
+          "end_time": 1742655867.411829,
+          "duration": 0.620337963104248,
+          "screenshot": "screenshots\\step_2.png"
+        },
+        {
+          "step": 3,
+          "action": "click",
+          "status": "failed",
+          "start_time": 1742655867.411829,
+          "end_time": 1742655929.0662732,
+          "duration": 61.654444217681885,
+          "screenshot": "screenshots\\step_3.png"
+        }
+      ],
+      "assertions": [],
+      "start_time": 1742655864.39965,
+      "end_time": 1742655929.5637338,
+      "duration": 65.16408371925354,
+      "screenshots": [
+        "screenshots\\test_Data_Integrity_Check_final.png"
+      ]
+    }
+  ],
+  "report": {
+    "summary": {
+      "timestamp": "2025-03-22T10:05:30.570371",
+      "total": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "error": 0,
+      "duration": 204.35351634025574,
+      "duration_formatted": "3m 24.35s"
+    },
+    "details": [
+      {
+        "name": "User Login Test",
+        "description": "Verify that users can log in with valid credentials and are denied access with invalid credentials.",
+        "status": "failed",
+        "duration": 96.54497623443604,
+        "duration_formatted": "1m 36.54s",
+        "steps_total": 2,
+        "steps_passed": 1,
+        "assertions_total": 0,
+        "assertions_passed": 0,
+        "screenshots": [
+          "screenshots\\test_User_Login_Test_final.png"
+        ]
+      },
+      {
+        "name": "Security Vulnerability Scan",
+        "description": "Conduct a security scan to identify potential vulnerabilities in the application.",
+        "status": "failed",
+        "duration": 39.619710206985474,
+        "duration_formatted": "39.62s",
+        "steps_total": 5,
+        "steps_passed": 4,
+        "assertions_total": 0,
+        "assertions_passed": 0,
+        "screenshots": [
+          "screenshots\\test_Security_Vulnerability_Scan_final.png"
+        ]
+      },
+      {
+        "name": "Data Integrity Check",
+        "description": "Ensure that data processed by the system remains accurate and consistent.",
+        "status": "failed",
+        "duration": 65.16408371925354,
+        "duration_formatted": "1m 5.16s",
+        "steps_total": 3,
+        "steps_passed": 2,
+        "assertions_total": 0,
+        "assertions_passed": 0,
+        "screenshots": [
+          "screenshots\\test_Data_Integrity_Check_final.png"
+        ]
+      }
+    ]
+  }
+}
