@@ -21,6 +21,7 @@ from aiqatester.feedback.analyzer import FeedbackAnalyzer
 from aiqatester.utils.config import Config
 from aiqatester.browser.controller import BrowserController
 from aiqatester.llm.openai_client import OpenAIClient
+from aiqatester.utils.data_exporter import DataExporter
 
 class TestDirector:
     """Orchestrates the entire testing process."""
@@ -35,6 +36,7 @@ class TestDirector:
         self.config = config or Config()
         self.browser = None
         self.llm_client = None
+        self.data_exporter = DataExporter()
         logger.info("TestDirector initialized")
         
     async def initialize(self) -> None:
@@ -91,15 +93,19 @@ class TestDirector:
             
             # Step 1: Analyze the website
             site_model = await self._analyze_website(url)
+            self.data_exporter.export_site_model(site_model)
             
             # Step 2: Create a testing strategy
             test_strategy = await self._create_test_strategy(site_model, task)
+            self.data_exporter.export_test_strategy(test_strategy)
             
             # Step 3: Generate test scripts
             test_scripts = await self._generate_test_scripts(site_model, test_strategy)
-            
+            self.data_exporter.export_test_scripts(test_scripts)
+
             # Step 4: Execute tests
             test_results = await self._execute_tests(test_scripts)
+            self.data_exporter.export_test_results(test_results)
             
             # Step 5: Process feedback
             feedback = await self._process_feedback(test_results)

@@ -52,6 +52,23 @@ async def main():
         results = await director.run(args.url, args.task)
         print("Testing completed!")
         print(f"Results: {results}")
+        print("\nDetailed information is available in these locations:")
+        exports_dir = os.path.join(os.getcwd(), "exports")
+        reports_dir = os.path.join(os.getcwd(), "reports")
+        screenshots_dir = os.path.join(os.getcwd(), "screenshots")
+        
+        # Find the latest export directory
+        if os.path.exists(exports_dir):
+            export_dirs = [d for d in os.listdir(exports_dir) if d.startswith("run_")]
+            if export_dirs:
+                latest_dir = max(export_dirs)
+                print(f"- Site analysis: {os.path.join(exports_dir, latest_dir, 'site_model.json')}")
+                print(f"- Test strategy: {os.path.join(exports_dir, latest_dir, 'test_strategy.json')}")
+                print(f"- Test scripts: {os.path.join(exports_dir, latest_dir, 'test_scripts.json')}")
+                print(f"- Test results: {os.path.join(exports_dir, latest_dir, 'test_results.json')}")
+        
+        print(f"- Test reports: {reports_dir}")
+        print(f"- Screenshots: {screenshots_dir}")
     except Exception as e:
         logger.error(f"Error running tests: {e}")
         raise
