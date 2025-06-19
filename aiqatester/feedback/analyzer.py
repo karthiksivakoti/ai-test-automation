@@ -320,7 +320,7 @@ class FeedbackAnalyzer:
         for i, pattern in enumerate(patterns):
             tests_str = ", ".join(pattern["tests"][:3])
             if len(pattern["tests"]) > 3:
-                tests_str += f" and {len(pattern["tests"]) - 3} more"
+                tests_str += f" and {len(pattern['tests']) - 3} more"
                 
             patterns_summary += f"""
             Pattern {i+1}:
