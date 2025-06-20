@@ -1,0 +1,78 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
+
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# === VS Code ===
+.vscode/
+
+# === Docker ===
+*.pid
+*.pid.lock
+docker-compose.override.yml
+
+# === Git ===
+*.orig
+
+# === Test results ===
+coverage/
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# === MyPy ===
+.mypy_cache/
+.dmypy.json
+
+# === PyInstaller ===
+build/
+dist/
+*.spec
+
+# === Unit test cache ===
+.pytest_cache/
+
+# === Temporary files ===
+*.bak
+*.swp
+*.tmp
+*.old
+
+# === Exports ====
+exports/
+reports/
+screenshots/
+reports/report_1742538067.json
+reports/report_1742538226.json
+reports/report_1742538307.json
+reports/report_1742538528.json
+reports/report_1742538561.json
+reports/report_1742538642.json
+reports/report_1742538689.json
+reports/report_1742539611.json
+reports/report_1742540635.json
+reports/report_1742541306.json
+screenshots/navigation_error_1742540458.png
+screenshots/navigation_error_1742538224.png
+screenshots/navigation_error_1742538065.png

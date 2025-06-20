@@ -1,8 +1,11 @@
 services:
   ai-test-automation:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+
+    # this image is published in my DockerHub Container Registry (Public)
+    image: danbalanean/ai-test-automation:latest
     ports:
       - "5000:8080"
     volumes:
@@ -14,3 +17,5 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - LLM_PROVIDER=${LLM_PROVIDER:-openai}
       - HEADLESS=true
+
+    restart: unless-stopped
