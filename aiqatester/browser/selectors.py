@@ -65,8 +65,8 @@ class SelectorUtils:
         
         # Escape single quotes in attribute selectors
         selector = re.sub(
-            r"\[([^=]+)='([^']*)'\]",
-            lambda m: f"[{m.group(1)}='{m.group(2).replace("'", r"\'")}']",
+            r"\[([^\]=]+)='([^']*)'\]",
+            lambda m: "[" + m.group(1) + "='" + m.group(2).replace("'", r"\\'") + "']",
             selector
         )
         
