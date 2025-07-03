@@ -65,7 +65,7 @@ class SiteAnalyzer:
             current_url, current_depth = url_queue.pop(0)
             
             # Skip if already visited or beyond max depth
-            if current_url in visited_urls or current_depth > self.max_depth:
+            if current_url in visited_urls or current_depth >= self.max_depth:
                 continue
                 
             logger.info(f"Analyzing page: {current_url} (depth: {current_depth})")
