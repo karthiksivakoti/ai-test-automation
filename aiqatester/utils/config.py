@@ -39,7 +39,7 @@ class Config:
     # Testing settings
     max_depth: int = 3
     max_test_cases: int = 10
-    max_pages: int = 20
+    max_pages: int = 50
     
     def __post_init__(self):
         # Override settings from environment variables
