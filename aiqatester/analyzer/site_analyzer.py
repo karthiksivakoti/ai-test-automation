@@ -84,7 +84,7 @@ class SiteAnalyzer:
                 visited_urls.add(current_url)
                 
                 # If not at max depth, add links to queue
-                if current_depth < self.max_depth:
+                if current_depth + 1 <= self.max_depth:
                     links = await self._extract_links()
                     
                     # Filter links to the same domain
