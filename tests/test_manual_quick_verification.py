@@ -13,7 +13,7 @@ async def test_manual_quick_verification():
     await browser.start()
     actions = BrowserActions(browser)
     try:
-        await browser.navigate("https://pikepass.com")
+        await browser.navigate("https://amazon.com")
         # Extract interactive elements
         elements = await browser.extract_interactive_elements()
         results = {}

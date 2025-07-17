@@ -2,6 +2,7 @@
 playwright>=1.42.0            # Browser automation
 asyncio>=3.4.3                # Async programming support
 python-dotenv>=1.0.0          # Environment variable management
+pytest-asyncio
 
 # LLM Integration
 openai>=1.11.0                # OpenAI API integration
