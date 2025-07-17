@@ -13,6 +13,7 @@ from aiqatester.llm.openai_client import OpenAIClient
 from aiqatester.knowledge.site_model import SiteModel
 from aiqatester.llm.prompt_library import get_prompt
 from aiqatester.llm.response_parser import ResponseParser
+from aiqatester.browser.selectors import SelectorUtils
 
 class TestScriptGenerator:
     """Generates executable test scripts."""
@@ -192,7 +193,32 @@ class TestScriptGenerator:
         test_script["name"] = test_case.get("name", test_script.get("name", "Unknown test case"))
         test_script["description"] = test_case.get("description", test_script.get("description", ""))
         test_script["priority"] = test_case.get("priority", test_script.get("priority", 3))
-        
+
+        # Post-process and validate selectors in steps
+        if "steps" in test_script:
+            for step in test_script["steps"]:
+                selector = step.get("selector")
+                # Only validate non-null selectors
+                if selector:
+                    try:
+                        # Use the first available page for validation if possible
+                        page = None
+                        if hasattr(self.site_model, 'pages') and self.site_model.pages:
+                            # Get any page object (they should be Playwright Page or similar)
+                            for p in self.site_model.pages.values():
+                                if hasattr(p, 'page'):
+                                    page = p.page
+                                    break
+                        if page:
+                            is_valid = await SelectorUtils.validate_selector(page, selector)
+                            if not is_valid:
+                                logger.warning(f"Selector '{selector}' in step {step.get('step')} is invalid. Marking for review.")
+                                step['selector_valid'] = False
+                        else:
+                            logger.info("No page available for selector validation at script generation time.")
+                    except Exception as e:
+                        logger.warning(f"Error validating selector '{selector}' in step {step.get('step')}: {e}")
+                        step['selector_valid'] = False
         return test_script
     
     async def _generate_assertions(self, test_script: Dict[str, Any]) -> List[Dict[str, Any]]:

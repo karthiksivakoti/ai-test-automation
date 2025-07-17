@@ -12,41 +12,54 @@ class SelectorUtils:
     """Utilities for working with selectors."""
     
     @staticmethod
-    def create_selector(element_data: Dict[str, Any]) -> str:
+    def create_selectors(element_data: Dict[str, Any]) -> List[str]:
         """
-        Create a selector for an element based on its data.
-        
+        Create a list of selectors for an element based on its data, ordered by robustness.
         Args:
             element_data: Element data
-            
         Returns:
-            CSS selector
+            List of selectors (CSS, Playwright text, XPath)
         """
         selectors = []
-        
-        # Try to create selectors based on available attributes
+        # 1. ID selector (most robust)
         if element_data.get("id"):
             selectors.append(f"#{element_data['id']}")
-        
+        # 2. Class selector (if unique enough)
         if element_data.get("class"):
             class_selector = "." + ".".join(element_data["class"].split())
             selectors.append(class_selector)
-        
+        # 3. Name selector
         if element_data.get("name"):
             selectors.append(f"[name='{element_data['name']}']")
-        
+        # 4. Type selector (for inputs, buttons, etc.)
         if element_data.get("type"):
             selectors.append(f"[type='{element_data['type']}']")
-        
+        # 5. Playwright text selector (for buttons, links, etc.)
         if element_data.get("text"):
-            # This is a simplification - text selection is complex
             text = element_data["text"].strip()
             if text:
-                # For links and buttons, use text content
-                selectors.append(f"a:text('{text}')")
-                selectors.append(f"button:text('{text}')")
-        
-        # Return the most specific selector (usually the first one)
+                tag = element_data.get("tag", "")
+                # Prefer tag if available
+                if tag in ["button", "a", "label", "span", "div"]:
+                    selectors.append(f"{tag}:has-text(\"{text}\")")
+                else:
+                    selectors.append(f":has-text(\"{text}\")")
+        # 6. XPath fallback (least robust, but sometimes necessary)
+        xpath = SelectorUtils.create_xpath(element_data)
+        if xpath:
+            selectors.append(f"xpath={xpath}")
+        return selectors
+    
+    @staticmethod
+    def create_selector(element_data: Dict[str, Any]) -> str:
+        """
+        Create a single best selector for an element based on its data.
+        Args:
+            element_data: Element data
+        Returns:
+            Best selector (CSS, Playwright text, or XPath)
+        """
+        selectors = SelectorUtils.create_selectors(element_data)
         return selectors[0] if selectors else ""
     
     @staticmethod
@@ -150,3 +163,26 @@ class SelectorUtils:
             xpath = base
             
         return xpath
+
+    @staticmethod
+    async def validate_selector(page, selector: str, timeout: int = 3000) -> bool:
+        """
+        Validate that a selector matches exactly one visible, enabled element.
+        Args:
+            page: Playwright Page object
+            selector: Selector string
+            timeout: Timeout in ms
+        Returns:
+            True if valid, False otherwise
+        """
+        try:
+            locator = page.locator(selector)
+            await locator.wait_for(state="visible", timeout=timeout)
+            count = await locator.count()
+            if count != 1:
+                return False
+            if not await locator.is_enabled():
+                return False
+            return True
+        except Exception:
+            return False

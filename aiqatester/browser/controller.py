@@ -17,6 +17,7 @@ from playwright.async_api import async_playwright, Browser, BrowserContext, Page
 from loguru import logger
 from bs4 import BeautifulSoup
 import html2text
+from aiqatester.browser.selectors import SelectorUtils
 
 class BrowserController:
     """Controls browser interactions for website testing."""
@@ -211,20 +212,96 @@ class BrowserController:
             logger.debug(f"Element not found with selector '{selector}': {e}")
             return None
 
+    async def click_element_by_data(self, element_data: Dict[str, Any], timeout: int = None) -> bool:
+        """
+        Click on an element using robust selector strategies based on element data.
+        Tries CSS, Playwright text, and XPath selectors in order.
+        Args:
+            element_data: Dictionary with element attributes (id, class, name, text, type, tag, etc.)
+            timeout: Custom timeout in milliseconds
+        Returns:
+            True if click was successful, False otherwise
+        """
+        selectors = SelectorUtils.create_selectors(element_data)
+        timeout = timeout or self.timeout
+        last_error = None
+        for selector in selectors:
+            try:
+                # Playwright supports 'xpath=' prefix for XPath selectors
+                if selector.startswith('xpath='):
+                    locator = self.page.locator(selector)
+                else:
+                    locator = self.page.locator(selector)
+                # Wait for element to be visible and enabled
+                await locator.wait_for(state="visible", timeout=timeout)
+                count = await locator.count()
+                if count != 1:
+                    logger.warning(f"Selector '{selector}' matched {count} elements, skipping.")
+                    continue
+                # Check if element is enabled
+                if not await locator.is_enabled():
+                    logger.warning(f"Element for selector '{selector}' is not enabled.")
+                    continue
+                # Special handling for checkboxes
+                tag = element_data.get("tag", "")
+                type_attr = element_data.get("type", "")
+                if tag == "input" and type_attr == "checkbox":
+                    checked = await locator.is_checked()
+                    # If value is specified, set accordingly
+                    value = element_data.get("value")
+                    if value is not None:
+                        should_check = bool(value)
+                        if should_check and not checked:
+                            await locator.check()
+                        elif not should_check and checked:
+                            await locator.uncheck()
+                    else:
+                        await locator.check()  # Default: check
+                # Special handling for select
+                elif tag == "select":
+                    value = element_data.get("value")
+                    label = element_data.get("label")
+                    index = element_data.get("index")
+                    await self.select_option(selector, value=value, label=label, index=index)
+                # Special handling for sliders (input[type=range])
+                elif tag == "input" and type_attr == "range":
+                    value = element_data.get("value")
+                    if value is not None:
+                        await locator.fill(str(value))
+                    else:
+                        await locator.click()
+                else:
+                    await locator.click(timeout=timeout)
+                logger.info(f"Clicked on element using selector: {selector}")
+                return True
+            except Exception as e:
+                logger.error(f"Failed to click using selector '{selector}': {e}")
+                last_error = e
+                await self.take_screenshot(f"click_error_{int(time.time())}")
+        logger.error(f"All selector attempts failed for element: {element_data}. Last error: {last_error}")
+        return False
+
     async def click(self, selector: str, timeout: int = None) -> bool:
         """
         Click on an element identified by the selector.
-        
         Args:
             selector: CSS selector to find the element
             timeout: Custom timeout in milliseconds
-            
         Returns:
             True if click was successful, False otherwise
         """
         try:
             timeout = timeout or self.timeout
-            await self.page.click(selector, timeout=timeout)
+            locator = self.page.locator(selector)
+            await locator.wait_for(state="visible", timeout=timeout)
+            count = await locator.count()
+            if count != 1:
+                logger.warning(f"Selector '{selector}' matched {count} elements, skipping click.")
+                return False
+            if not await locator.is_enabled():
+                logger.warning(f"Element for selector '{selector}' is not enabled.")
+                return False
+            await locator.click(timeout=timeout)
             logger.info(f"Clicked on element: {selector}")
             return True
         except Exception as e:

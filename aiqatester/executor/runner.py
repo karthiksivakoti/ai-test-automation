@@ -13,6 +13,7 @@ from loguru import logger
 
 from aiqatester.browser.controller import BrowserController
 from aiqatester.browser.actions import BrowserActions
+from aiqatester.browser.selectors import SelectorUtils
 
 class TestRunner:
     """Executes test scripts and captures results."""
@@ -210,7 +211,8 @@ class TestRunner:
             "start_time": time.time(),
             "end_time": None,
             "duration": 0,
-            "screenshot": None
+            "screenshot": None,
+            "error_details": None
         }
         
         try:
@@ -219,6 +221,7 @@ class TestRunner:
             selector = step.get("selector", "")
             value = step.get("value", "")
             wait_for = step.get("wait_for", "")
+            element_data = step.get("element_data")
             
             # Replace data placeholders
             if value and isinstance(value, str):
@@ -230,6 +233,7 @@ class TestRunner:
             
             # Execute action based on type
             success = False
+            error_details = {}
             
             if "navigate" in action or "go to" in action:
                 # Navigate to URL
@@ -239,17 +243,45 @@ class TestRunner:
                 await self.browser.navigate(value)
                 success = True
                 
+            elif "click_by_data" in action and element_data:
+                # Click element using element_data
+                success = await self.browser.click_element_by_data(element_data)
+                error_details['element_data'] = element_data
+                
             elif "click" in action:
-                # Click element
-                success = await self.browser.click(selector)
+                # Try all selectors if available
+                selectors_tried = []
+                if element_data:
+                    selectors = SelectorUtils.create_selectors(element_data)
+                else:
+                    selectors = [selector]
+                for sel in selectors:
+                    selectors_tried.append(sel)
+                    valid = await SelectorUtils.validate_selector(self.browser.page, sel)
+                    if not valid:
+                        continue
+                    try:
+                        res = await self.browser.click(sel)
+                        if res:
+                            success = True
+                            break
+                    except Exception as e:
+                        error_details[f'click_error_{sel}'] = str(e)
+                error_details['selectors_tried'] = selectors_tried
                 
             elif "type" in action or "fill" in action or "input" in action:
                 # Type text
-                success = await self.browser.type_text(selector, value)
+                try:
+                    success = await self.browser.type_text(selector, value)
+                except Exception as e:
+                    error_details['type_error'] = str(e)
                 
             elif "select" in action:
                 # Select option
-                success = await self.browser.select_option(selector, value=value)
+                try:
+                    success = await self.browser.select_option(selector, value=value)
+                except Exception as e:
+                    error_details['select_error'] = str(e)
                 
             elif "wait" in action:
                 # Wait for element or timeout
@@ -271,6 +303,7 @@ class TestRunner:
             else:
                 # Unknown action
                 logger.warning(f"Unknown action in step {step_number}: {action}")
+                error_details['unknown_action'] = action
                 success = False
             
             # Wait for additional element if specified
@@ -286,6 +319,9 @@ class TestRunner:
                 step_result["screenshot"] = screenshot
             except Exception as screenshot_error:
                 logger.warning(f"Failed to take step screenshot: {screenshot_error}")
+            
+            if not success:
+                step_result['error_details'] = error_details
             
         except Exception as e:
             logger.error(f"Error executing step {step_number}: {e}")
