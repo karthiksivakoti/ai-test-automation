@@ -154,6 +154,8 @@ class BrowserController:
                 logger.info(f"Navigated to {url} (Status: {response.status})")
             else:
                 logger.warning(f"Navigation to {url} did not return a response")
+            # Handle popups/blockers after navigation
+            await self.handle_popups_and_blockers()
         except Exception as e:
             logger.error(f"Failed to navigate to {url}: {e}")
             await self.take_screenshot(f"navigation_error_{int(time.time())}")
@@ -574,3 +576,79 @@ class BrowserController:
                 logger.debug(f"Failed to extract radio: {e}")
         
         return interactive_elements
+
+    async def handle_popups_and_blockers(self) -> bool:
+        """
+        Detect and handle popups, modals, cookie banners, captchas, and puzzles. Attempt to auto-close popups, otherwise prompt user in headed mode.
+        Returns True if all blockers are cleared, False if user intervention is required.
+        """
+        popup_selectors = [
+            "[role='dialog']", ".modal", ".popup", ".cookie", ".consent", ".cc-window", ".osano-cm-dialog", ".fc-consent-root", ".eu-cookie-compliance", ".cookie-banner", ".cookie-consent", ".alert", ".dialog", "#cookie", "#consent"
+        ]
+        close_button_selectors = [
+            "button:has-text('×')", "button:has-text('Close')", "button:has-text('Decline')", "button:has-text('Accept')", "button:has-text('OK')", "button:has-text('Got it')", "button:has-text('Allow')", "button:has-text('Dismiss')", "[aria-label='close']", "[aria-label='dismiss']", ".close", ".btn-close", ".close-button", ".close-btn"
+        ]
+        captcha_selectors = [
+            "iframe[src*='captcha']", ".g-recaptcha", "#captcha", ".h-captcha", "[id*='captcha']", "[class*='captcha']"
+        ]
+        puzzle_selectors = [
+            ".arkose-captcha", ".puzzle-captcha", ".slider-captcha", ".geetest_holder", ".geetest_panel", ".geetest_slider_button"
+        ]
+        found_blocker = False
+        # --- Popup/modal/cookie banner handling ---
+        for popup_selector in popup_selectors:
+            popups = await self.page.query_selector_all(popup_selector)
+            for popup in popups:
+                if await popup.is_visible():
+                    found_blocker = True
+                    logger.info(f"Detected popup/modal: {popup_selector}")
+                    for btn_selector in close_button_selectors:
+                        btns = await popup.query_selector_all(btn_selector)
+                        for btn in btns:
+                            if await btn.is_visible():
+                                try:
+                                    await btn.click()
+                                    logger.info(f"Clicked close/accept/decline button: {btn_selector}")
+                                    await asyncio.sleep(1)
+                                    break
+                                except Exception as e:
+                                    logger.warning(f"Failed to click button {btn_selector}: {e}")
+                    if await popup.is_visible():
+                        logger.warning(f"Popup {popup_selector} still visible after attempts to close.")
+                        await self.take_screenshot(f"blocker_{popup_selector}_{int(time.time())}")
+        # --- Captcha detection ---
+        for captcha_selector in captcha_selectors:
+            captchas = await self.page.query_selector_all(captcha_selector)
+            for captcha in captchas:
+                if await captcha.is_visible():
+                    found_blocker = True
+                    logger.warning(f"Detected captcha: {captcha_selector}")
+                    await self.take_screenshot(f"captcha_{captcha_selector}_{int(time.time())}")
+        # --- Puzzle detection ---
+        for puzzle_selector in puzzle_selectors:
+            puzzles = await self.page.query_selector_all(puzzle_selector)
+            for puzzle in puzzles:
+                if await puzzle.is_visible():
+                    found_blocker = True
+                    logger.warning(f"Detected puzzle: {puzzle_selector}")
+                    await self.take_screenshot(f"puzzle_{puzzle_selector}_{int(time.time())}")
+        # --- Main window blocked check ---
+        try:
+            test_element = await self.page.query_selector("body")
+            if test_element and not await test_element.is_enabled():
+                found_blocker = True
+        except Exception:
+            pass
+        if found_blocker:
+            logger.warning("Blocker (popup/captcha/puzzle) detected and could not be auto-closed. Switching to headed mode and prompting user.")
+            await self.take_screenshot(f"blocker_user_prompt_{int(time.time())}")
+            if self.headless:
+                logger.info("Restarting browser in headed mode for user intervention.")
+                await self.stop()
+                self.headless = False
+                await self.start()
+            print("\n[USER ACTION REQUIRED] Please resolve any popups, cookie banners, captchas, or puzzles in the browser window. Press Enter to continue...")
+            input()
+            logger.info("User confirmed blocker resolved. Resuming automation.")
+            return False
+        return True
